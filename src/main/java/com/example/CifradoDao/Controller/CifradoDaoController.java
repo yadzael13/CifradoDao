@@ -3,7 +3,9 @@ package com.example.CifradoDao.Controller;
 import com.example.CifradoDao.Logic.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,9 +21,22 @@ import lombok.var;
 public class CifradoDaoController {
     @Autowired CifradoDaoLogic cifradoDaoLogic;
     
-    @GetMapping("helloWolrd")
-    public Response helloWolrd(Request input){
-        var resp = cifradoDaoLogic.helloWorld(input);
+    @PostMapping("DescryptAccount")
+    public Response DescryptAccount(@RequestBody Request input) throws Exception{
+        var resp = cifradoDaoLogic.InputService(input);
         return resp;
     }
+
+    @PostMapping("EncripList")
+    public ResponseList EncripList(RequestList input) throws Exception{
+        var resp = cifradoDaoLogic.EncripList(input);
+        return resp;
+    }
+
+    @PostMapping("DecripList")
+    public ResponseList DecripList(RequestList input) throws Exception{
+        var resp = cifradoDaoLogic.DecripList(input);
+        return resp;
+    }
+    
 }

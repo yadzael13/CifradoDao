@@ -1,4 +1,6 @@
 package com.example.CifradoDao.Entities;
+
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Request {
-    private String accountNo;
-    private String privateKey;
-	private String publicKey;
+public class ResponseList {
+    private List<String> outputList;
+	private String result;
+	private String resultDescription;
 }
